@@ -1,0 +1,60 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh issue:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npx:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git branch:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git tag:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(echo:*)",
+      "Bash(date:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(sort:*)",
+      "Bash(wc:*)",
+      "Bash(tr:*)",
+      "Edit",
+      "Write"
+    ]
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "outputStyle": "Explanatory",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/summarize_test_output.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/summarize_large_file.py"
+          }
+        ]
+      }
+    ]
+  }
+}
