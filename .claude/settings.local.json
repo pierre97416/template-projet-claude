@@ -1,4 +1,5 @@
 {
+  "defaultMode": "bypassPermissions",
   "permissions": {
     "allow": [
       "Bash(gh issue:*)",
@@ -30,7 +31,8 @@
       "Bash(wc:*)",
       "Bash(tr:*)",
       "Edit",
-      "Write"
+      "Write",
+      "Bash(cd:*)"
     ]
   }
 }
